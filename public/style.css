@@ -1,0 +1,84 @@
+/***********************************************************************************************************************/
+/* Fonts */
+/***********************************************************************************************************************/
+
+@font-face {
+    font-family: "Inter";
+    src: url(assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+/***********************************************************************************************************************/
+/* Overall */
+/***********************************************************************************************************************/
+
+:root {
+    --bg-pastel: #fffeca;
+    --html-blue: #0000ff;
+    --white: #fff;
+    --black: #222;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: Inter, sans-serif;
+}
+
+/***********************************************************************************************************************/
+/* Header */
+/***********************************************************************************************************************/
+
+header {
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-pastel);
+    color: var(--html-blue);
+}
+
+header img {
+    width: 190px;
+    height: 32px;
+}
+
+header p span {
+    font-weight: 700;
+}
+
+/***********************************************************************************************************************/
+/* Footer */
+/***********************************************************************************************************************/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-pastel);
+}
+
+footer h3 {
+    font-size: 2rem;
+    color: var(--html-blue);
+    margin-bottom: 25px;
+}
+
+footer p {
+    max-width: 35rem;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+footer a {
+    width: auto;
+    padding: .85rem 1.5rem .7rem;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--html-blue);
+    border-radius: 3px;
+}
