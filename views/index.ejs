@@ -5,6 +5,13 @@
         <h1>Blog</h1>
         <h2>We love web</h2>
     </div>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <%- post.title %>
+            </li>
+        <% }) %>
+    </ul>
 </main>
 
 <%- include('partials/foot') %>

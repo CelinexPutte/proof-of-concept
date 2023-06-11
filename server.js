@@ -1,4 +1,3 @@
-import * as path from "path"
 import express from "express"
 import dotenv from "dotenv"
 
@@ -13,7 +12,21 @@ server.set("views", "./views")
 
 // Maak een route voor de index
 server.get("/", (request, response) => {
-  response.render("index")
+  graphQLRequest(`query($orderBy: [BlogPostModelOrderBy]) {
+    allBlogPosts(orderBy: $orderBy) {
+      title
+      updatedAt
+      authors {
+        name
+        image {
+          url
+        }
+      }
+      slug
+    }
+  }`, {"orderBy": "updatedAt_DESC"}).then((data) => {
+    response.render('index', { posts: data.data.allBlogPosts });
+  })
 })
 
 // Stel het poortnummer in en start express
@@ -22,13 +35,18 @@ server.listen(server.get("port"), function () {
   console.log(`Application started on http://localhost:${server.get("port")}`)
 })
 
-/**
- * Wraps the fetch api and returns the response body parsed through json
- * @param {*} url the api endpoint to address
- * @returns the json response from the api endpoint
- */
-async function fetchJson(url) {
-  return await fetch(url)
-    .then((response) => response.json())
-    .catch((error) => error)
+// Functie GraphQL ophalen
+async function graphQLRequest(gql = "", variables = {}) {
+    return await fetch("https://graphql.datocms.com", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "10a0ae10c2d6418c1acd4346de9329",
+        },
+        body: JSON.stringify({
+            query: gql,
+            variables,
+        }),
+    })
+        .then(r => r.json());
 }
