@@ -12,20 +12,21 @@ server.set("views", "./views")
 
 // Maak een route voor de index
 server.get("/", (request, response) => {
-  graphQLRequest(`query($orderBy: [BlogPostModelOrderBy]) {
-    allBlogPosts(orderBy: $orderBy) {
-      title
-      updatedAt
-      authors {
-        name
-        image {
-          url
+  graphQLRequest(
+    `query($orderBy: [BlogPostModelOrderBy]) {
+      allBlogPosts(orderBy: $orderBy) {
+        title
+        updatedAt
+        authors {
+          name
+          image {
+            url
+          }
         }
+        slug
       }
-      slug
-    }
-  }`, {"orderBy": "updatedAt_DESC"}).then((data) => {
-    response.render('index', { posts: data.data.allBlogPosts });
+    }`, {"orderBy": "updatedAt_DESC"}).then((data) => {
+      response.render('index', { posts: data.data.allBlogPosts });
   })
 })
 

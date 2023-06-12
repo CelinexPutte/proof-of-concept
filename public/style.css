@@ -16,6 +16,10 @@
     --html-blue: #0000ff;
     --white: #fff;
     --black: #222;
+    --padding-side: 4rem;
+    --padding-top-bottom: 2rem;
+    --margin-small: 15px;
+    --margin-larger: 55px
 }
 
 * {
@@ -24,6 +28,10 @@
     font-size: 1em;
     line-height: 1.4;
     font-family: Inter, sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 /***********************************************************************************************************************/
@@ -38,6 +46,8 @@ header {
     align-items: center;
     background-color: var(--bg-pastel);
     color: var(--html-blue);
+    padding: var(--padding-top-bottom) var(--padding-side);
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 header img {
@@ -50,6 +60,56 @@ header p span {
 }
 
 /***********************************************************************************************************************/
+/* Main */
+/***********************************************************************************************************************/
+
+main {
+    background-color: var(--white);
+}
+
+main > div {
+    color: var(--html-blue);
+    background-color: var(--bg-pastel);
+    padding: var(--padding-top-bottom) calc(var(--padding-side) + 4rem);
+}
+
+main > div h1 {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+main > div h2 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+/***********************************************************************************************************************/
+/* Posts */
+/***********************************************************************************************************************/
+
+ul {
+    list-style: none;
+    padding: var(--padding-top-bottom) 2rem; /* Nog aanpassen */
+}
+
+li {
+    margin-bottom: var(--margin-larger)
+}
+
+li:last-of-type {
+    margin-bottom: 0;
+}
+
+article a h3 {
+    margin-bottom: var(--margin-small)
+}
+
+article div {
+    margin-top: var(--margin-small);
+}
+
+
+/***********************************************************************************************************************/
 /* Footer */
 /***********************************************************************************************************************/
 
@@ -58,6 +118,7 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: var(--bg-pastel);
+    padding: var(--padding-top-bottom) var(--padding-side)
 }
 
 footer h3 {
@@ -76,7 +137,6 @@ footer p {
 footer a {
     width: auto;
     padding: .85rem 1.5rem .7rem;
-    text-decoration: none;
     font-weight: 700;
     color: var(--white);
     background-color: var(--html-blue);

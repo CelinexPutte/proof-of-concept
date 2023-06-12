@@ -5,13 +5,27 @@
         <h1>Blog</h1>
         <h2>We love web</h2>
     </div>
+
     <ul>
         <% posts.forEach(post => { %>
             <li>
-                <%- post.title %>
+                <article>
+                    <a href="https://www.voorhoede.nl/en/blog/<%- post.slug %>">
+                        <h3><%- post.title %></h3>
+                    </a>
+                    <time date="<%- post.updatedAt %>"><%- post.updatedAt %></time>
+                    <div>
+                        <p> By
+                            <% post.authors.forEach(author => { %>
+                                <%= author.name %>
+                            <% }) %>
+                        </p>
+                    </div>
+                </article>
             </li>
         <% }) %>
     </ul>
+
 </main>
 
 <%- include('partials/foot') %>
