@@ -14,7 +14,10 @@
                         <h3><%- post.title %></h3>
                     </a>
                     <time date="<%- post.updatedAt %>"><%- post.updatedAt %></time>
-                    <div>
+                    <div class="authors">
+                        <% post.authors.forEach(author => { %>
+                                <img src=<%- author.image.url %> alt="" class="author-img" width="65">
+                            <% }) %>
                         <p> By
                             <% post.authors.forEach(author => { %>
                                 <%= author.name %>

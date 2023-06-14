@@ -88,8 +88,12 @@ main > div h2 {
 /***********************************************************************************************************************/
 
 ul {
+    width: fit-content;
     list-style: none;
     padding: var(--padding-top-bottom) 2rem; /* Nog aanpassen */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 li {
@@ -100,12 +104,33 @@ li:last-of-type {
     margin-bottom: 0;
 }
 
+article a:visited {
+    color: var(--html-blue);
+}
+
 article a h3 {
-    margin-bottom: var(--margin-small)
+    margin-bottom: var(--margin-small);
+    font-size: 1.125rem;
+    max-width: 30rem;
 }
 
 article div {
     margin-top: var(--margin-small);
+}
+
+.authors {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-img {
+    height: 65px;
+    object-fit: cover;
+}
+
+.authors p {
+    margin-left: 0.5rem;
 }
 
 
