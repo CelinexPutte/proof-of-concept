@@ -84,10 +84,64 @@ main > div h2 {
 }
 
 /***********************************************************************************************************************/
+/* Search */
+/***********************************************************************************************************************/
+
+.search-bar {
+    width: 30rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--white);
+    padding: 2rem 0;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid var(--html-blue);
+    border-radius: 3px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+}
+
+.search-box button {
+    width: 2rem;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.result-box ul {
+    border: 2px solid var(--html-blue);
+    padding: 15px 10px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    font-weight: 700;
+    background-color: var(--bg-pastel);
+}
+
+/***********************************************************************************************************************/
 /* Posts */
 /***********************************************************************************************************************/
 
-ul {
+.blog-post-list {
     width: fit-content;
     list-style: none;
     padding: var(--padding-top-bottom) 2rem; /* Nog aanpassen */
@@ -96,25 +150,25 @@ ul {
     margin-right: auto;
 }
 
-li {
+.blog-post-list li {
     margin-bottom: var(--margin-larger)
 }
 
-li:last-of-type {
+.blog-post-list li:last-of-type {
     margin-bottom: 0;
 }
 
-article a:visited {
+.blog-post-list article a:visited {
     color: var(--html-blue);
 }
 
-article a h3 {
+.blog-post-list article a h3 {
     margin-bottom: var(--margin-small);
     font-size: 1.125rem;
     max-width: 30rem;
 }
 
-article div {
+.blog-post-list article div {
     margin-top: var(--margin-small);
 }
 

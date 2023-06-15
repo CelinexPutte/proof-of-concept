@@ -6,7 +6,18 @@
         <h2>We love web</h2>
     </div>
 
-    <ul>
+    <div class="search-bar">
+        <div class="search-box">
+            <input type="text" id="search-input" autocomplete="off">
+            <button aria-label="Search">
+                <img src="assets/img/search-icon.svg" alt="">
+            </button>
+        </div>
+        <div class="result-box">
+        </div>
+    </div>
+
+    <ul class="blog-post-list">
         <% posts.forEach(post => { %>
             <li>
                 <article>
@@ -16,7 +27,7 @@
                     <time date="<%- post.updatedAt %>"><%- post.updatedAt %></time>
                     <div class="authors">
                         <% post.authors.forEach(author => { %>
-                                <img src=<%- author.image.url %> alt="" class="author-img" width="65">
+                                <img src=<%- author.image.url %> alt="" loading="lazy" class="author-img" width="65">
                             <% }) %>
                         <p> By
                             <% post.authors.forEach(author => { %>
