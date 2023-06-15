@@ -13,20 +13,23 @@ server.set("views", "./views")
 
 // Maak een route voor de index
 server.get("/", (request, response) => {
+  const searchTerm = request.query.searchbar || ""
+  console.log(request.query.searchbar)
   graphQLRequest(
-    `query($orderBy: [BlogPostModelOrderBy]) {
-      allBlogPosts(orderBy: $orderBy) {
+    `query AllBlogPosts($searchbar: String!, $orderBy: [BlogPostModelOrderBy]) {
+      allBlogPosts(orderBy: $orderBy, filter: { title: { matches: { pattern: $searchbar } } } ) {
         title
-        updatedAt
         authors {
-          name
           image {
             url
           }
+          name
         }
+        publishDate
+        introTitle
         slug
       }
-    }`, {"orderBy": "updatedAt_DESC"}).then((data) => {
+    }`, {"orderBy": "updatedAt_DESC", "searchbar": searchTerm}).then((data) => {
       response.render('index', { posts: data.data.allBlogPosts });
   })
 })
@@ -50,5 +53,12 @@ async function graphQLRequest(gql = "", variables = {}) {
             variables,
         }),
     })
-        .then(r => r.json());
+        .then(async response => {
+          const body = await response.json()
+          if (body.errors) {
+            throw new Error(JSON.stringify(body.errors, null, 2))
+          }
+          return body
+        })
+        .catch(error => console.log(error))
 }
