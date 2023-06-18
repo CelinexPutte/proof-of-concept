@@ -96,25 +96,22 @@ main > div h2 {
     padding: 2rem 0;
 }
 
-.search-box {
+.box-input-send {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    width: 100%;
     border: 2px solid var(--html-blue);
     border-radius: 3px;
+    margin-top: 0.5rem;
 }
 
-.search-box input {
+.box-input-send input {
     width: 100%;
     padding: 15px 10px;
     border: none;
+    border-radius: 3px;
 }
 
-.search-box button {
-    width: 3rem;
-    height: 100%;
+.box-input-send button {
     background: none;
     border: none;
     border-left: 1px solid var(--html-blue);
